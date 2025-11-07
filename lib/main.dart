@@ -6,6 +6,7 @@ import 'package:recipe_app/provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:recipe_app/custom_theme.dart';
 import 'package:recipe_app/screens/home_screen.dart';
+import 'package:recipe_app/provider/user_provider.dart';
 
 void main() {
   runApp(
@@ -13,6 +14,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => ListOfRecipes()),
         ChangeNotifierProvider(create: (_) => SavedProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
       child: const MyApp(), // Hanya child yang diperlukan di sini
     ),

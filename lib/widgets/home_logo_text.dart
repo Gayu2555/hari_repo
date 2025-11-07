@@ -7,35 +7,80 @@ class HomeLogoText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // Simple circular logo placeholder
+        // Logo bulat dengan gradient
         Container(
           width: 48.0,
           height: 48.0,
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
+            gradient: LinearGradient(
+              colors: [
+                Theme.of(context).primaryColor,
+                Theme.of(context).primaryColor.withOpacity(0.7),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
             shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).primaryColor.withOpacity(0.3),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
           ),
           child: Center(
             child: Text(
-              'R',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(color: Colors.white),
+              'S',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
-        const SizedBox(width: 10.0),
+        const SizedBox(width: 12.0),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Recipe App',
-              style: Theme.of(context).textTheme.titleLarge,
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.5,
+                ),
+                children: [
+                  TextSpan(
+                    text: 'SHARE',
+                    style: TextStyle(
+                      color: Colors.black87,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'RE',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'CIPE',
+                    style: TextStyle(
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
             ),
+            const SizedBox(height: 2.0),
             Text(
               'Discover your next meal',
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Colors.grey[600],
+                    fontSize: 12.0,
+                  ),
             ),
           ],
         ),
